@@ -4,6 +4,7 @@
         <home-swiper :swiperList="swiperList"></home-swiper>
         <home-icons :iconList="iconList"></home-icons>
         <home-recommend :recommendList="recommendList"></home-recommend>
+        <home-weekend :weekendList='weekendList'></home-weekend>
     </div>
 </template>
 
@@ -12,12 +13,14 @@ import HomeHeader from './components/Header';
 import HomeSwiper from './components/Swiper';
 import HomeIcons from './components/Icons';
 import HomeRecommend from './components/Recommend';
+import HomeWeekend from './components/Weekend';
 export default {
     data() {
         return {
             iconList: [],
             swiperList: [],
-            recommendList: []
+            recommendList: [],
+            weekendList:[],
         };
     },
 
@@ -44,10 +47,16 @@ export default {
                         data: { recommendList }
                     }
                 } = res;
+                const {
+                    data: {
+                        data: { weekendList }
+                    }
+                } = res;
 
                 this.iconList = iconList;
                 this.swiperList = swiperList;
                 this.recommendList = recommendList;
+                this.weekendList=weekendList
             });
         }
     },
@@ -56,7 +65,8 @@ export default {
         HomeHeader,
         HomeSwiper,
         HomeIcons,
-        HomeRecommend
+        HomeRecommend,
+        HomeWeekend
     }
 };
 </script>
