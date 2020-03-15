@@ -7,6 +7,11 @@ export default new Router({
       path: "/",
       name: "home",
       component:()=>import('@/page/home/Home.vue')
-    }
+    },
+    {
+      path: "/city",
+      name: "city",
+      component:()=>import('@/page/city/Home.vue')
+    },
   ]
 });

@@ -2,10 +2,12 @@
     <div class="header">
         <div class="header-left"><img :src="imgLeft" /></div>
         <div class="header-input">输入城市/景点</div>
-        <div class="header-right">
-            <span>城市</span>
-            <img :src="imgRight" />
-        </div>
+        <router-link to="/city">
+            <div class="header-right">
+                <span>城市</span>
+                <img :src="imgRight" />
+            </div>
+        </router-link>
     </div>
 </template>
 
