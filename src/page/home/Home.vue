@@ -1,8 +1,9 @@
 <template>
     <div>
         <home-header></home-header>
-        <home-swiper></home-swiper>
-        <home-icons :iconList='iconList'></home-icons>
+        <home-swiper :swiperList="swiperList"></home-swiper>
+        <home-icons :iconList="iconList"></home-icons>
+        <home-recommend :recommendList="recommendList"></home-recommend>
     </div>
 </template>
 
@@ -10,10 +11,13 @@
 import HomeHeader from './components/Header';
 import HomeSwiper from './components/Swiper';
 import HomeIcons from './components/Icons';
+import HomeRecommend from './components/Recommend';
 export default {
     data() {
         return {
-            iconList: []
+            iconList: [],
+            swiperList: [],
+            recommendList: []
         };
     },
 
@@ -24,12 +28,26 @@ export default {
     methods: {
         getHomeData() {
             this.axios.get('/index.json').then(res => {
+                console.log(res);
                 const {
                     data: {
                         data: { iconList }
                     }
                 } = res;
+                const {
+                    data: {
+                        data: { swiperList }
+                    }
+                } = res;
+                const {
+                    data: {
+                        data: { recommendList }
+                    }
+                } = res;
+
                 this.iconList = iconList;
+                this.swiperList = swiperList;
+                this.recommendList = recommendList;
             });
         }
     },
@@ -37,7 +55,8 @@ export default {
     components: {
         HomeHeader,
         HomeSwiper,
-        HomeIcons
+        HomeIcons,
+        HomeRecommend
     }
 };
 </script>

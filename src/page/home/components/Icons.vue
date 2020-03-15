@@ -51,6 +51,7 @@ export default {
 .icon-wrapper>>>.swiper-slide
     display flex
     flex-wrap wrap
+    margin-top .2rem
     .container
         width 25%
         text-align center

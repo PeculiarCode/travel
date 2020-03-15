@@ -1,21 +1,42 @@
 <template>
-    <div class="swiper-wrapper">
-        123
+    <div class="wrapper">
+        <swiper :options="swiperOption" v-if="showSwiper">
+            <swiper-slide v-for="item of swiperList" :key="item.id">
+                <img class="swiper-img" :src="item.imgUrl" />
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
     </div>
 </template>
 
 <script>
 export default {
     data() {
-        return {};
+        return {
+            swiperOption: {
+                pagination: {
+                    el: '.swiper-pagination'
+                }
+            }
+        };
     },
-    created() {},
-    mounted() {},
-    methods: {},
-    computed: {},
+    props: {
+        swiperList: Array,
+        default: []
+    },
+    computed: {
+        showSwiper() {
+            return this.swiperList.length;
+        }
+    },
     components: {}
 };
 </script>
+<style lang="stylus">
+.wrapper
+   .swiper-img
+        width: 100%
+</style>
 <style lang="stylus" scoped>
 .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
@@ -25,6 +46,4 @@ export default {
         height: 0
         padding-bottom: 31.25%
         background: #eee
-        .swiper-img
-            width: 100%
 </style>
