@@ -20,8 +20,9 @@ export default {
         };
     },
     props: {
-        iconList: Array,
-        default: []
+        iconList: {
+            type: Array
+        }
     },
     created() {},
     mounted() {},
