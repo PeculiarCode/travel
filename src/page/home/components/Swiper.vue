@@ -1,5 +1,5 @@
 <template>
-    <div class="com-wrapper">
+    <div class="swiper-wrapper">
         123
     </div>
 </template>
