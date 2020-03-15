@@ -2,12 +2,16 @@
     <div class="com-wrapper">
        <city-header></city-header>
        <city-search></city-search>
+       <city-list></city-list>
+       <city-alphabet></city-alphabet>
     </div>
 </template>
 
 <script>
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
+import CityList from './components/List'
+import CityAlphabet from './components/Alphabet'
 
 export default {
     data() {
@@ -19,7 +23,9 @@ export default {
     computed: {},
     components: {
         CityHeader,
-        CitySearch
+        CitySearch,
+        CityList,
+        CityAlphabet
     }
 };
 </script>
