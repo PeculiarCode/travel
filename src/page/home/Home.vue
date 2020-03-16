@@ -31,7 +31,6 @@ export default {
     methods: {
         getHomeData() {
             this.axios.get('/index.json').then(res => {
-                console.log(res);
                 const {
                     data: {
                         data: { iconList }

@@ -4,7 +4,7 @@
         <div class="header-input">输入城市/景点</div>
         <router-link to="/city">
             <div class="header-right">
-                <span>城市</span>
+                <span>{{ this.doubleCity }}</span>
                 <img :src="imgRight" />
             </div>
         </router-link>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex';
 export default {
     data() {
         return {
@@ -22,7 +23,15 @@ export default {
     created() {},
     mounted() {},
     methods: {},
-    computed: {},
+    computed: {
+        //state数据获取用计算属性,mapGetters进行公用数据的重新计算
+        ...mapState(['city']),
+        ...mapGetters(['doubleCity'])
+        //变量别名
+        // ...mapState({
+        //     handleName:'city'
+        // })
+    },
     components: {}
 };
 </script>

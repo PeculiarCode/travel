@@ -39,7 +39,7 @@ export default {
                 }
                 pages[page].push(item);
             });
-            console.log(pages);
+            // console.log(pages);
             return pages;
         }
     },
