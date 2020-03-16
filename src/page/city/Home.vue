@@ -1,7 +1,7 @@
 <template>
     <div class="com-wrapper">
         <city-header></city-header>
-        <city-search></city-search>
+        <city-search :cities="cities"></city-search>
         <city-list
             :cities="cities"
             :hotCity="hotCity"
@@ -37,6 +37,13 @@ export default {
             this.axios.get('/city.json').then(res => {
                 this.hotCity = res.data.data.hotCities;
                 this.cities = res.data.data.cities;
+
+                // let rest = Object.values(this.cities);
+                // rest.forEach(item => {
+                //     console.log(item.forEach(inner=>{
+                //         console.log(inner)
+                //     }));
+                // });
             });
         },
         handleLetterChange(letter) {
