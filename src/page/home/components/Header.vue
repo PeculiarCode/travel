@@ -4,7 +4,7 @@
         <div class="header-input">输入城市/景点</div>
         <router-link to="/city">
             <div class="header-right">
-                <span>{{ this.doubleCity }}</span>
+                <span>{{ this.city }}</span>
                 <img :src="imgRight" />
             </div>
         </router-link>
