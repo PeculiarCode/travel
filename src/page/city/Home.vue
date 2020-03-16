@@ -2,8 +2,15 @@
     <div class="com-wrapper">
         <city-header></city-header>
         <city-search></city-search>
-        <city-list :cities="cities" :hotCity="hotCity"></city-list>
-        <city-alphabet :cities="cities"></city-alphabet>
+        <city-list
+            :cities="cities"
+            :hotCity="hotCity"
+            :letter="letter"
+        ></city-list>
+        <city-alphabet
+            :cities="cities"
+            @change="handleLetterChange"
+        ></city-alphabet>
     </div>
 </template>
 
@@ -17,7 +24,8 @@ export default {
     data() {
         return {
             hotCity: [],
-            cities: {}
+            cities: {},
+            letter: ''
         };
     },
     created() {
@@ -30,6 +38,9 @@ export default {
                 this.hotCity = res.data.data.hotCities;
                 this.cities = res.data.data.cities;
             });
+        },
+        handleLetterChange(letter) {
+            this.letter = letter;
         }
     },
     computed: {},
