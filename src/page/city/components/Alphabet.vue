@@ -20,20 +20,18 @@ export default {
     name: 'CityAlphabet',
     data() {
         return {
-            touchStatus: false
+            touchStatus: false,
+            startY: 0,
+            timer: null
         };
     },
     props: {
         cities: Object
     },
-    // watch: {
-    //     cities() {
-    //         console.log(this.cities, 'watch');
-    //     }
-    // },
+    //初始化的时候cities没有数据,渲染完才有数据
+    //将startY转换成去全局变量,缓存起来
     updated() {
-        // let res = Object.keys(this.cities);
-        // console.log(res);
+        this.startY = this.$refs['A'][0].offsetTop;
     },
     computed: {
         handleAlphabet() {
@@ -49,12 +47,17 @@ export default {
         },
         handleTouchMove(e) {
             if (this.touchStatus) {
-                const startY = this.$refs['A'][0].offsetTop;
-                const touchY = e.touches[0].clientY - 79;
-                const index = Math.floor((touchY - startY) / 20); //20表示字母的高度
-                if (index >= 0 && index < this.handleAlphabet.length) {
-                    this.$emit('change', this.handleAlphabet[index]);
+                if (this.timer) {
+                    clearTimeout(this.timer);
                 }
+                //延迟20ms执行touchmove方法,如果在这期间有相关move操作,清除这个定时器
+                this.timer = setTimeout(() => {
+                    const touchY = e.touches[0].clientY - 79;
+                    const index = Math.floor((touchY - this.startY) / 20); //20表示字母的高度
+                    if (index >= 0 && index < this.handleAlphabet.length) {
+                        this.$emit('change', this.handleAlphabet[index]);
+                    }
+                }, 20);
             }
         },
         handleTouchEnd() {
