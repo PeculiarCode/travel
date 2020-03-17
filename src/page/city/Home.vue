@@ -34,7 +34,7 @@ export default {
     mounted() {},
     methods: {
         getCityData() {
-            this.axios.get('/city.json').then(res => {
+            this.axios.get('/city').then(res => {
                 this.hotCity = res.data.data.hotCities;
                 this.cities = res.data.data.cities;
 

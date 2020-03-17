@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     getDetailInfo () {
-      this.axios.get('/detail.json', {
+      this.axios.get('/detail', {
         params: {
           id: this.$route.params.id
         }

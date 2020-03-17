@@ -4,6 +4,7 @@ import 'styles/reset.css';
 import 'styles/border.css';
 import router from './router';
 import fastClick from 'fastclick';
+import 'babel-polyfill'
 import axios from 'axios';
 import store from './store'
 import VueAwesomeSwiper from 'vue-awesome-swiper';

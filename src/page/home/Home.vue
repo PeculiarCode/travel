@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         getHomeData() {
-            this.axios.get(`/index.json?city=${this.city}`).then(res => {
+            this.axios.get(`/home?city=${this.city}`).then(res => {
                 const {
                     data: {
                         data: { iconList }
