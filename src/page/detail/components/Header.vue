@@ -78,6 +78,7 @@ export default {
   color: #fff
   background: $bgColor
   font-size: .32rem
+  z-index 1
   .active
         color red
   .header-fixed-back
