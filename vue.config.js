@@ -7,6 +7,7 @@ module.exports = {
         config.resolve.alias
             .set('components', resolve('src/components'))
             .set('@', resolve('src'))
+            .set('common', resolve('src/common'))
             .set('styles', resolve('src/assets/styles'));
     }
 };

@@ -13,5 +13,10 @@ export default new Router({
       name: "city",
       component:()=>import('@/page/city/Home.vue')
     },
+    {
+      path: "/detail/:id",
+      name: "detail",
+      component:()=>import('@/page/detail/Detail.vue')
+    },
   ]
 });
